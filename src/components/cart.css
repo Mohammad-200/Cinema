@@ -1,0 +1,99 @@
+section .movie-cart {
+    border: none;
+    position: relative;
+    border-radius: 0;
+    background: #000000;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+    transition: 0.5s;
+}
+
+section .movie-cart::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    transform: scale(0);
+}
+
+section .movie-cart p {
+    display: flex;
+    align-items: center;
+    color: #dddddd;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.movie-cart ion-icon[name="star"] {
+    font-size: 1.5rem;
+    color: yellow;
+    margin-bottom: 2px;
+  }
+
+section .movie-cart .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5;
+    transform: scale(0);
+}
+
+section .movie-cart .content h4 {
+    position: relative;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-decoration: uppercase;
+}
+
+section .movie-cart .content h4::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom:  -10px;
+    height: 5px;
+    width: 80%;
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        var(--primary),
+        transparent
+    );
+    z-index: 1000;
+}
+
+.movie-cart .content ion-icon[name="add"],
+.movie-cart .content ion-icon[name="play"] {
+    font-size: 2rem; /* Corrected the size value */
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+section .movie-cart .content ion-icon:hover {
+    color: var(--primary);
+}
+
+section .movie-cart:hover .content,
+section .movie-cart:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
