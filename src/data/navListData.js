@@ -14,13 +14,13 @@ const navListData = [
   {
     _id: 3,
     link: "#trend",
-    name: "trend",
+    name: "For you",
     active: false,
   },
   {
     _id: 4,
     link: "#blogs",
-    name: "blog",
+    name: "Rooms",
     active: false,
   },
 ];

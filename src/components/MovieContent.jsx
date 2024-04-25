@@ -4,7 +4,8 @@ import Button from './Button';
 
 function MovieContent({ movie }) {
   return (
-    <div className={`content ${movie.active ? 'active' : ''}`}>
+    // Add active here
+    <div className={`content ${movie.active ? 'active' : ''}`}>  
       <h2>{movie.title}</h2>
       <h4>
         <span>{movie.release_date}</span>

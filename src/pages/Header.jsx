@@ -4,6 +4,8 @@ import navListData from '../data/navListData'
 import './header.css'
 import Search from '../components/Search'
 import Button from '../components/Button'
+import ChatBtn from '../components/ChatBtn'
+import { IoLogoWechat } from "react-icons/io5";
 
 
 function Header() {
@@ -16,7 +18,8 @@ function Header() {
             })}
       </ul>
       <Search />
-      <Button icon={<ion-icon name="log-in"></ion-icon>} name="Sign Up"/>
+      <ChatBtn icon={<IoLogoWechat className='group-chat-icon'/>}/>
+      <Button icon={<ion-icon name="log-in"></ion-icon>} name="Sign In"/>
     </header>
   )
 }

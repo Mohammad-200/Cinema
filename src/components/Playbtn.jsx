@@ -4,6 +4,7 @@ import Modal from './Modal'
 
 function Playbtn({ movie }) {
   return (
+    // Add active here
     <>
       <div className={`trailer d-flex align-items-center justify-content-center ${movie.active  ? 'active' : ''}`}>
         <a href="#" className="playBtn">

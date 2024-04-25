@@ -38,7 +38,7 @@ function MovieSwiper({slides, updateInfo}) {
       modules={[EffectCoverflow, Pagination, Autoplay]}
       className="movieSwiper"
     > 
-    {slides.results.map(slide => (
+    {slides.map(slide => (
         <SwiperSlide key={slide.id}>
         <img src={`https://image.tmdb.org/t/p/w300/${slide.poster_path}`} alt='Movie Image' onClick={()=> updateInfo(slide.id)}/>
          </SwiperSlide>

@@ -87,19 +87,18 @@ function Schedule() {
         fetchData();
       }, []);
       
+            
+      React.useEffect(() => {
+          setMovies(data);
+      }, [data])
 
-React.useEffect(() => {
-    setMovies(data);
-}, [data])
-
-const filterMovies = category => {
-    const filteredMovies = movies.filter(movie => movie.genres.some(genre => genre.name === category));
-    return setMovies(filteredMovies)
-   
-}
+      const filterMovies = category => {
+          const filteredMovies = movies.filter(movie => movie.genres.some(genre => genre.name === category));
+          return setMovies(filteredMovies)
+        
+      }
 
 
-// console.log(movies)
   return (
     <section className="schedule" id='schedule'>
         <div className="container-fluid">
