@@ -1,0 +1,106 @@
+.signup-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #1a1a2e; 
+    color: #e5e5e5; 
+    font-family: 'Arial', sans-serif; 
+    background-image: url('../images/cinema-pic.avif'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    z-index: 0;
+  }
+  
+  .signup-container::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.7);
+  }
+  
+    
+   
+    .signup-content {
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(152, 78, 78, 0.1); /* Soft shadow */
+      width: 90%;
+      max-width: 400px; /* Max width with padding */
+      z-index: 1000;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.9); /* More pronounced shadow for depth */
+    }
+    
+    /* Header and typography enhancements */
+    .signup-content h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    #cinema {
+      color: #e63946; /* A pop of color for the cinema word */
+    }
+    
+    .signup-header p {
+      text-align: center;
+      margin-top: 0;
+    }
+    
+    .signup-header a {
+      color: #f4a261; /* Soft orange links */
+      text-decoration: none; /* Removes underline */
+    }
+    
+    .signup-header a:hover {
+      text-decoration: underline; /* Underline on hover for better user experience */
+    }
+    
+    /* Form and input styling */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    input.input-style {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #33334d; /* Dark input backgrounds */
+      color: #ffffff; /* White text for inputs */
+      background-image: url();
+    }
+    
+    input.input-style:focus {
+      outline: none;
+      border: 2px solid #e63946; /* Highlighted border color when focused */
+    }
+    
+    button {
+      background-color: #e63946; /* Button color matching the cinema word */
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 20px;margin-top: 10px;
+      font-weight: 400;
+      transition: background-color 0.3s;
+    }
+    
+    button:hover {
+      background-color: #f4a261; 
+    }
+    
+  
+    .error {
+      padding: 0;
+      margin: 0;
+      color: rgb(255, 75, 75);
+    }

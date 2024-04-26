@@ -19,7 +19,7 @@ function Header() {
       </ul>
       <Search />
       <ChatBtn icon={<IoLogoWechat className='group-chat-icon'/>}/>
-      <Button icon={<ion-icon name="log-in"></ion-icon>} name="Sign In"/>
+      <Button icon={<ion-icon name="log-in"></ion-icon>} name="Sign Up" to="/signup"/>
     </header>
   )
 }
