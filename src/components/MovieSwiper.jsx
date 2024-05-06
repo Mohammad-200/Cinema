@@ -34,7 +34,10 @@ function MovieSwiper({slides, updateInfo}) {
       pagination={true}
       touchRatio={0.5} 
       speed={800} 
-      lazy={true} 
+      lazy={{
+        loadPrevNext: true, 
+        loadOnTransitionStart: true 
+      }}
       modules={[EffectCoverflow, Pagination, Autoplay]}
       className="movieSwiper"
     > 

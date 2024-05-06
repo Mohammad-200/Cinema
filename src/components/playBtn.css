@@ -3,6 +3,7 @@
     visibility: hidden;
     opacity: 0;
     transform: scale(0);
+    transition: 1s;
     z-index: 1000;
 }
 
@@ -66,3 +67,48 @@
         filter: blur(10px);
     }
 }
+
+/* trailer styles */
+
+.video-container {
+    position: fixed;        
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;           
+    width: 100vw;           
+    height: 100vh;           
+    background-color: rgba(0,0,0,0.8); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .video-wrapper {
+    position: relative; 
+    width: 80%;
+    max-width: 1200px;
+    height: auto;
+  }
+  
+  .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 1%;
+    background-color: transparent;
+    color: red;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1050;
+    transition: .7s;
+  }
+  
+  .closeBtn:focus {
+    outline: none;
+  }
+  
+  .closeBtn:hover {
+    transform: rotate(90deg) scale(1.2);
+    background-color: transparent;
+  }

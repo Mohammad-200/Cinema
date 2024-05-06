@@ -4,10 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "swiper/css";
 import "./App.css";
 import Banner from "./pages/Banner";
-import Header from "./pages/Header";
+import Header from "./pages/Header"; 
 import Main from "./pages/Main";
-import Signup from "./pages/Signup"; // Import your Signup component
-import Login from "./pages/Login"; // Import your Login component if you have it
+import Signup from "./pages/Signup"; 
+import Login from "./pages/Login"; 
+
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           path="/"
           element={
             <>
-              <Header />
+              <Header /> 
               <Banner />
               <Main />
             </>

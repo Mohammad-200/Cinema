@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import "./banner.css";
+import { fetchMovies, fetchMovieDetails } from '../utils/api'
 import MovieContent from '../components/MovieContent';
 import MovieDate from '../components/MovieDate';
 import Playbtn from '../components/Playbtn';
 import MovieSwiper from '../components/MovieSwiper';
+import "./banner.css";
 
 const apiKey = "dd7e06e21fb7d013bbbced7e171eac8e";
 
@@ -20,9 +21,17 @@ function Banner() {
 
             if (data && data.results) {
                 const moviesWithDetails = await Promise.all(data.results.map(async movie => {
-                    const response = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}&language=en-US`);
-                    const details = await response.json();
-                    return { ...movie, genres: details.genres, active: false };
+                    const detailsResponse = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}&language=en-US`);
+                    const details = await detailsResponse.json();
+                    const videosResponse = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${apiKey}&language=en-US`);
+                    const videosData = await videosResponse.json();
+                    const trailer = videosData.results.find(video => video.type === 'Trailer');
+                    return {
+                        ...movie,
+                        genres: details.genres,
+                        active: false,
+                        trailer: trailer ? transformYouTubeUrl(`https://www.youtube.com/watch?v=${trailer.key}`) : null
+                    };
                 }));
 
                 if (moviesWithDetails.length > 0) moviesWithDetails[0].active = true;
@@ -30,17 +39,30 @@ function Banner() {
                 setMovies(moviesWithDetails);
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         } finally {
             setIsLoading(false);
         }
     };
 
+    
     useEffect(() => {
         fetchData();
     }, []);
 
-    console.log(movies)
+    
+    // Transform the YouTube watch URL to an embed URL
+    function transformYouTubeUrl(url) {
+        if (!url) return null;
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        const match = url.match(regExp);
+      
+        if (match && match[2].length === 11) {
+          return `https://www.youtube.com/embed/${match[2]}`;
+        } else {
+          return null; 
+        }
+      }
 
     const updateActiveMovie = (id) => {
         setMovies(prevMovies => prevMovies.map(movie => ({
@@ -48,6 +70,7 @@ function Banner() {
             active: movie.id === id,
         })));
     };
+
 
     return (
         <div className="banner">

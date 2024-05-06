@@ -11,10 +11,10 @@ import { IoLogoWechat } from "react-icons/io5";
 function Header() {
   return (
     <header>
-      <a href="" className="logo">Cinema</a>
+      <a href="#" className="logo">Cinema</a>
       <ul className="nav">
       {navListData.map(nav => {
-               return <NavListItem key={nav.id} nav={nav}/>
+               return <NavListItem key={nav._id} nav={nav}/>
             })}
       </ul>
       <Search />

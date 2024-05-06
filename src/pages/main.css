@@ -26,7 +26,7 @@ section {
     width: 100%;
     transition: ease-in-out;
     transform-origin: bottom;
-    z-index: 1100;
+    z-index: 1000;
 }
 
 section h1 {
