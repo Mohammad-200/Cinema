@@ -1,4 +1,4 @@
-const apiKey = "dd7e06e21fb7d013bbbced7e171eac8e";
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const fetchMovies = async () => {
   const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=GFS+Didot&family=Inter:wght@400;600;700&family=Kumbh+Sans:wght@400;700&family=Montserrat:wght@400;500;700&family=Poppins:wght@400;700&family=Racing+Sans+One&family=Roboto:wght@400;500;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=GFS+Didot&family=Inter:wght@400;600;700&family=Kumbh+Sans:wght@400;700&family=Montserrat:wght@400;500;700&family=Poppins:wght@400;700&family=Racing+Sans+One&family=Roboto:wght@400;500;700&display=swap");
 
 * {
   margin: 0;
@@ -9,12 +8,12 @@
 }
 
 :root {
-  --primary: #ff3700
+  --primary: #ff3700;
 }
 
 body {
   background: #000000;
-  font-family: 'Roboto', 'sans-serif';
+  font-family: "Roboto", "sans-serif";
 }
 
 body::-webkit-scrollbar {

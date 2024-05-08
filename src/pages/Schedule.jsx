@@ -4,7 +4,7 @@ import React from "react";
 import "./schedule.css";
 import Cart from "../components/Cart";
 
-const apiKey = "dd7e06e21fb7d013bbbced7e171eac8e";
+const apiKey = process.env.REACT_APP_API_KEY;
 
 function Schedule() {
   const [movies, setMovies] = React.useState([]);

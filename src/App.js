@@ -4,30 +4,29 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "swiper/css";
 import "./App.css";
 import Banner from "./pages/Banner";
-import Header from "./pages/Header"; 
+import Header from "./pages/Header";
 import Main from "./pages/Main";
-import Signup from "./pages/Signup"; 
-import Login from "./pages/Login"; 
-
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import AppToastContainer from "./components/AppToastContainer";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Header /> 
-              <Banner />
-              <Main />
-            </>
-          }
-        />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <>
+            <Header />
+            <Banner />
+            <AppToastContainer />
+            <Main />
+          </>
+        }
+      />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
   );
 }
 
