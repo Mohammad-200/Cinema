@@ -28,6 +28,15 @@ const ChatProvider = ({ children }) => {
     }
   }
 
+  // logout logic
+  const logout = () => {
+    localStorage.removeItem("userInfo");
+    setUser(null);
+    setTimeout(() => {
+      window.location.reload();
+    }, 0);
+  };
+
   useEffect(() => {
     const token = localStorage.getItem("userInfo");
     if (token && token !== user?.token) {
@@ -37,7 +46,7 @@ const ChatProvider = ({ children }) => {
   }, [location]);
 
   return (
-    <ChatContext.Provider value={{ user, setUser }}>
+    <ChatContext.Provider value={{ user, setUser, logout }}>
       {children}
     </ChatContext.Provider>
   );

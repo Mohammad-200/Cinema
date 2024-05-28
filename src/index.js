@@ -4,15 +4,17 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import ChatProvider from "./Context/ChatProvider";
+import { ChatToggleProvider } from "./Context/ChatToggleContext";
 import { BrowserRouter } from "react-router-dom";
-// require("dotenv").config(); fix later with the webpack
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ChatProvider>
-        <App />
+        <ChatToggleProvider>
+          <App />
+        </ChatToggleProvider>
       </ChatProvider>
     </BrowserRouter>
   </React.StrictMode>

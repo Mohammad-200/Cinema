@@ -4,11 +4,13 @@ import NavListItem from "../components/NavListItem";
 import navListData from "../data/navListData";
 import Search from "../components/Search";
 import Button from "../components/Button";
-
-import "./header.css";
 import ChatPanel from "../components/ChatPanel";
+import { ChatState } from "../Context/ChatProvider";
+import "./header.css";
+import UserName from "../components/UserName";
 
 function Header() {
+  const { user, logout } = ChatState();
   return (
     <header>
       <a href="#" className="logo">
@@ -21,7 +23,11 @@ function Header() {
       </ul>
       <Search />
       <ChatPanel />
-      <Button icon={<ion-icon name="log-in" />} name="Sign Up" to="/signup" />
+      {user ? (
+        <UserName user={user} logout={logout} />
+      ) : (
+        <Button icon={<ion-icon name="log-in" />} name="Sign Up" to="/signup" />
+      )}
     </header>
   );
 }

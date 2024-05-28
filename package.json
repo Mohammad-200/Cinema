@@ -11,8 +11,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^6.23.0",
     "react-scripts": "5.0.1",
+    "react-scrollable-feed": "^2.0.1",
+    "react-spinners": "^0.13.8",
     "react-toastify": "^10.0.5",
     "swiper": "^11.0.5",
     "web-vitals": "^2.1.4"

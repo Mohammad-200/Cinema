@@ -4,9 +4,9 @@ import MovieDate from "../components/MovieDate";
 import Playbtn from "../components/Playbtn";
 import MovieSwiper from "../components/MovieSwiper";
 import "./banner.css";
+import ChatControl from "../components/ChatControl";
 
 const apiKey = process.env.REACT_APP_API_KEY;
-console.log(apiKey);
 
 function Banner() {
   const [movies, setMovies] = useState([]);
@@ -117,6 +117,7 @@ function Banner() {
       ) : (
         <p>Data is loading...</p>
       )}
+      <ChatControl />
     </div>
   );
 }

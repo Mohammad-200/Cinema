@@ -21,7 +21,7 @@ function Signup() {
         body: JSON.stringify({ userName, email, password }),
       });
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       if (data.errors) {
         setErrors(data.errors);
         return;
