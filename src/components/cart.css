@@ -1,99 +1,154 @@
-section .movie-cart {
-    border: none;
-    position: relative;
-    border-radius: 0;
-    background: #000000;
-    box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
-    transition: 0.5s;
+.movie-cart {
+  border: none;
+  position: relative;
+  border-radius: 0;
+  background: #000000;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+  transition: 0.5s;
 }
 
-section .movie-cart::before {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0, 0.6);
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.5s;
-    transform: scale(0);
+.movie-cart::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  transform: scale(0);
 }
 
-section .movie-cart p {
-    display: flex;
-    align-items: center;
-    color: #dddddd;
-    font-size: 1.2rem;
-    font-weight: 400;
-    text-align: center;
-    padding: 10px 0;
+.movie-cart p {
+  display: flex;
+  align-items: center;
+  color: #dddddd;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: center;
+  padding: 10px 0;
 }
 
 .movie-cart ion-icon[name="star"] {
-    font-size: 1.5rem;
-    color: yellow;
-    margin-bottom: 2px;
-  }
-
-section .movie-cart .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.5;
-    transform: scale(0);
+  font-size: 1.5rem;
+  color: yellow;
+  margin-bottom: 2px;
 }
 
-section .movie-cart .content h4 {
-    position: relative;
-    color: #ffffff;
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin-bottom: 20px;
-    text-decoration: uppercase;
+.movie-cart .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5;
+  transform: scale(0);
 }
 
-section .movie-cart .content h4::before {
-    position: absolute;
-    content: '';
-    left: 0;
-    bottom:  -10px;
-    height: 5px;
-    width: 80%;
-    background: linear-gradient(
-        90deg,
-        var(--primary),
-        var(--primary),
-        transparent
-    );
-    z-index: 1000;
+.movie-cart .content h4 {
+  position: relative;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-decoration: uppercase;
+}
+
+.movie-cart .content h4::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -10px;
+  height: 5px;
+  width: 80%;
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--primary),
+    transparent
+  );
+  z-index: 1000;
 }
 
 .movie-cart .content ion-icon[name="add"],
 .movie-cart .content ion-icon[name="play"] {
-    font-size: 2rem; /* Corrected the size value */
-    transition: 0.3s;
-    cursor: pointer;
+  font-size: 2rem;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-
-section .movie-cart .content ion-icon:hover {
-    color: var(--primary);
+.movie-cart .content ion-icon:hover {
+  color: var(--primary);
 }
 
-section .movie-cart:hover .content,
-section .movie-cart:hover::before {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
+.movie-cart:hover .content,
+.movie-cart:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.card-icons a {
+  font-size: 2rem;
+  transition: 0.3s;
+  cursor: pointer;
+  color: white;
+}
+
+.card-icons a:hover {
+  color: var(--primary);
+}
+
+/* trailer styles */
+
+.video-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 1200px;
+  height: auto;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 0;
+  right: 1%;
+  background-color: transparent;
+  color: red;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1050;
+  transition: 0.7s;
+}
+
+.closeBtn:focus {
+  outline: none;
+}
+
+.closeBtn:hover {
+  transform: rotate(90deg) scale(1.2);
+  background-color: transparent;
 }

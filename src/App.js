@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "swiper/css";
 import "./App.css";
@@ -9,24 +14,32 @@ import Main from "./pages/Main";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import AppToastContainer from "./components/AppToastContainer";
+import SearchResultContainer from "./pages/SearchResultContainer";
 
 function App() {
+  const location = useLocation();
+  const showHeader =
+    location.pathname !== "/login" && location.pathname !== "/signup";
+
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <>
-            <Header />
-            <Banner />
-            <AppToastContainer />
-            <Main />
-          </>
-        }
-      />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/login" element={<Login />} />
-    </Routes>
+    <>
+      {showHeader && <Header />}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Banner />
+              <AppToastContainer />
+              <Main />
+            </>
+          }
+        />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/search" element={<SearchResultContainer />} />
+      </Routes>
+    </>
   );
 }
 

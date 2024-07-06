@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import ChatProvider from "./Context/ChatProvider";
 import { ChatToggleProvider } from "./Context/ChatToggleContext";
 import { BrowserRouter } from "react-router-dom";
+import { SearchProvider } from "./Context/SearchProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,7 +14,9 @@ root.render(
     <BrowserRouter>
       <ChatProvider>
         <ChatToggleProvider>
-          <App />
+          <SearchProvider>
+            <App />
+          </SearchProvider>
         </ChatToggleProvider>
       </ChatProvider>
     </BrowserRouter>

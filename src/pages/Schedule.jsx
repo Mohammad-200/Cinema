@@ -1,10 +1,8 @@
-import filterList from "../data/filterList";
-
 import React from "react";
 import "./schedule.css";
 import Cart from "../components/Cart";
-
-const apiKey = process.env.REACT_APP_API_KEY;
+import filterList from "../data/filterList";
+import { fetchMovies, fetchMovieDetails } from "../utils/api";
 
 function Schedule() {
   const [movies, setMovies] = React.useState([]);
@@ -16,20 +14,18 @@ function Schedule() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(
-          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
-        );
-        const data = await response.json();
-        const moviesWithGenres = await Promise.all(
-          data.results.map(async (movie) => {
-            const movieResponse = await fetch(
-              `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}&language=en-US`
-            );
-            const movieData = await movieResponse.json();
-            return { ...movie, genres: movieData.genres };
+        const moviesData = await fetchMovies();
+        const moviesWithTrailers = await Promise.all(
+          moviesData.results.map(async (movie) => {
+            const movieData = await fetchMovieDetails(movie.id);
+            return {
+              ...movie,
+              genres: movieData.genres,
+              trailer: movieData.trailer,
+            };
           })
         );
-        setMovies(moviesWithGenres);
+        setMovies(moviesWithTrailers);
       } catch (error) {
         console.error(error);
       } finally {

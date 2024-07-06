@@ -5,6 +5,7 @@ import Playbtn from "../components/Playbtn";
 import MovieSwiper from "../components/MovieSwiper";
 import "./banner.css";
 import ChatControl from "../components/ChatControl";
+import SearchResultContainer from "./SearchResultContainer";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 

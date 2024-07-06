@@ -7,14 +7,21 @@ import { toast } from "react-toastify";
 import ScrollableFeed from "react-scrollable-feed";
 import { ChatState } from "../Context/ChatProvider";
 import { BarLoader } from "react-spinners";
+import { io } from "socket.io-client";
+
+// const ENDPOINT = "http://localhost:3001";
+
+let socket;
 
 function ChatControl() {
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { isOpen, toggleChat } = useChatToggle();
+  const [socketConnection, setSocketConnection] = useState(false);
 
   const { user } = ChatState();
+  console.log(user);
 
   const sendMessage = async () => {
     const token = localStorage.getItem("userInfo");
@@ -71,6 +78,14 @@ function ChatControl() {
       fetchMessages();
     }
   }, [toggleChat]);
+
+  // useEffect(() => {
+  //   if (user) {
+  //     socket = io(ENDPOINT);
+  //     socket.emit("setup", user);
+  //     socket.on("connection", () => setSocketConnection(true));
+  //   }
+  // }, [user]);
 
   if (!user) {
     return null;

@@ -1,0 +1,46 @@
+.search-result-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 7rem;
+  width: 100%;
+  padding: 0 20px;
+  justify-content: center;
+  gap: 20px;
+  background-color: #000000;
+}
+
+.searched-movies {
+  margin: 20px;
+  width: 180px;
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #ffffff;
+}
+
+.searched-movies img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.searched-movies:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* .spinner-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
