@@ -169,3 +169,23 @@
   background: darken(var(--primary), 10%);
   color: var(--primary);
 }
+
+.custom-tooltip {
+  font-size: 10px;
+  padding: 5px 5px;
+  max-width: 200px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 1200px) {
+  .chat-control {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .chat-control {
+    width: 100%;
+  }
+}

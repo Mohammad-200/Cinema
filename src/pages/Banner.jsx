@@ -5,7 +5,6 @@ import Playbtn from "../components/Playbtn";
 import MovieSwiper from "../components/MovieSwiper";
 import "./banner.css";
 import ChatControl from "../components/ChatControl";
-import SearchResultContainer from "./SearchResultContainer";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -98,11 +97,11 @@ function Banner() {
               className={`bgImg ${movie.active ? "active" : ""}`}
             />
             <div className="container-fluid">
-              <div className="row">
-                <div className="col-lg-6 col-md-12">
+              <div className="row d-flex flex-column flex-lg-row">
+                <div className="col-12 col-lg-6">
                   <MovieContent movie={movie} />
                 </div>
-                <div className="col-lg-6 col-md-12">
+                <div className="col-12 col-lg-6">
                   <MovieDate movie={movie} />
                   <Playbtn movie={movie} />
                 </div>

@@ -69,3 +69,11 @@
 .modal-button button:hover {
   background-color: #b2b2b2;
 }
+
+@media only screen and (max-width: 840px) {
+  .user-name-container {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+}

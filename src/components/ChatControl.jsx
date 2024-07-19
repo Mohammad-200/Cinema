@@ -7,10 +7,10 @@ import { toast } from "react-toastify";
 import ScrollableFeed from "react-scrollable-feed";
 import { ChatState } from "../Context/ChatProvider";
 import { BarLoader } from "react-spinners";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 import { io } from "socket.io-client";
 
-// const ENDPOINT = "http://localhost:3001";
-
+const ENDPOINT = "http://localhost:3001";
 let socket;
 
 function ChatControl() {
@@ -39,6 +39,9 @@ function ChatControl() {
       const data = await response.json();
 
       console.log(data);
+
+      //Emit the new message to the server
+      socket.emit("new message", data);
 
       setMessages([...messages, data]);
     } catch (error) {
@@ -79,13 +82,21 @@ function ChatControl() {
     }
   }, [toggleChat]);
 
-  // useEffect(() => {
-  //   if (user) {
-  //     socket = io(ENDPOINT);
-  //     socket.emit("setup", user);
-  //     socket.on("connection", () => setSocketConnection(true));
-  //   }
-  // }, [user]);
+  useEffect(() => {
+    if (user) {
+      socket = io(ENDPOINT);
+      socket.emit("setup", user);
+      socket.on("connection", () => setSocketConnection(true));
+
+      socket.on("message received", (newMessage) => {
+        setMessages((prevMessages) => [...prevMessages, newMessage]);
+      });
+
+      return () => {
+        socket.disconnect();
+      };
+    }
+  }, [user]);
 
   if (!user) {
     return null;
@@ -123,7 +134,19 @@ function ChatControl() {
                     >
                       {m.sender._id !== user.id && (
                         <div className="user-image">
-                          <img src={m.sender.pic} alt={m.sender.userName}></img>
+                          <img
+                            src={m.sender.pic}
+                            alt={m.sender.userName}
+                            data-tooltip-id={`tooltip-${m._id}`}
+                            data-tooltip-content={m.sender.userName}
+                          ></img>
+                          <ReactTooltip
+                            id={`tooltip-${m._id}`}
+                            place="top"
+                            type="dark"
+                            effect="float"
+                            className="custom-tooltip"
+                          />
                         </div>
                       )}
                       <span>{m.content}</span>

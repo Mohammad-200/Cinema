@@ -32,3 +32,17 @@
   color: #ffffff;
   border-right: 1px solid #ffffff;
 }
+
+@media only screen and (max-width: 1300px) {
+  .search {
+    width: 200px;
+    height: 40px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .search {
+    width: 110px;
+    height: 40px;
+  }
+}

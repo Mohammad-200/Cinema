@@ -24,7 +24,7 @@ const Cart = forwardRef(({ movie }, ref) => {
   };
 
   return (
-    <div ref={ref} className="col-lg-2 col-md-4 col-sm-6">
+    <div ref={ref} className="col-lg-2 col-md-4 col-4">
       <div className="movie-cart">
         <img
           src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}

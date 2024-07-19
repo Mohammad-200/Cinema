@@ -7,8 +7,16 @@
   font-size: 1.7rem;
   transition: all 0.2s;
   cursor: pointer;
+  z-index: 0;
 }
 
 .chat-button:hover {
   background-color: #6e6e6e;
+}
+
+@media only screen and (max-width: 840px) {
+  .chat-button {
+    padding: 0 8px;
+    font-size: 1.4rem;
+  }
 }

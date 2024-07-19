@@ -1,28 +1,40 @@
 .banner .date {
-    position: relative;
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(0);
-    transition: 1s;
-    z-index: 1000;
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+  transition: 1s;
+  z-index: 1000;
 }
 
 .banner .date.active {
-    visibility: visible;
-    opacity: 1;
-    transform: scale(1);
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .banner .date h2 {
-    font-family: "Racing Sans One", cursive;
-    color: #ffffff;
-    text-decoration: uppercase;
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-    -webkit-mask: linear-gradient(#000000 0 0), linear-gradient(#000000 0 0);
-    -webkit-mask-clip: text, padding-box;
-    -webkit-mask-composite: xor;
+  font-family: "Racing Sans One", cursive;
+  color: #ffffff;
+  text-decoration: uppercase;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  -webkit-mask: linear-gradient(#000000 0 0), linear-gradient(#000000 0 0);
+  -webkit-mask-clip: text, padding-box;
+  -webkit-mask-composite: xor;
+}
 
+@media only screen and (max-width: 1300px) {
+  .banner .date h2 {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .banner .date h2 {
+    display: none;
+    opacity: 0;
+  }
 }

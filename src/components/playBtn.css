@@ -1,114 +1,149 @@
 .banner .trailer {
-    position: relative;
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(0);
-    transition: 1s;
-    z-index: 1000;
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+  transition: 1s;
+  z-index: 1000;
 }
 
 .banner .trailer.active {
-    visibility: visible;
-    opacity: 1;
-    transform: scale(1);
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .trailer p {
-    color: var(--primary);
-    font-size: 1.5rem;
-    margin-left: 20px;
-    margin-bottom: 0;
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-left: 20px;
+  margin-bottom: 0;
 }
 
-
 .banner .playBtn {
-    position: relative;
-    color: #ffffff;
-    width: 80px;
-    height: 80px;
-    transition: 1s;
-    z-index: 1000;
-    background: transparent;
-    backdrop-filter: blur(20px);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer !important;
+  position: relative;
+  color: #ffffff;
+  width: 80px;
+  height: 80px;
+  transition: 1s;
+  z-index: 1000;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer !important;
 }
 
 .banner .playBtn ion-icon {
-    font-size: 3rem;
-    color: var(--primary);
-    cursor: pointer;
+  font-size: 3rem;
+  color: var(--primary);
+  cursor: pointer;
 }
 
 .banner .playBtn::before {
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    content: '';
-    background: transparent;
-    border: 10px solid #ffffff;
-    border-radius: 50%;
-    animation: button 1s linear infinite;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  content: "";
+  background: transparent;
+  border: 10px solid #ffffff;
+  border-radius: 50%;
+  animation: button 1s linear infinite;
 }
 
 @keyframes button {
-    0%,
-    100% {
-        opacity: 0.3;
-        filter: blur(4px);
-    }
-    50% {
-        opacity: 1;
-        filter: blur(10px);
-    }
+  0%,
+  100% {
+    opacity: 0.3;
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(10px);
+  }
 }
 
 /* trailer styles */
 
 .video-container {
-    position: fixed;        
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1050;           
-    width: 100vw;           
-    height: 100vh;           
-    background-color: rgba(0,0,0,0.8); 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 1200px;
+  height: auto;
+}
+
+.video-wrapper .closeBtn {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  background-color: transparent;
+  color: red;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1050;
+  transition: 0.7s;
+}
+
+.closeBtn:focus {
+  outline: none;
+}
+
+.closeBtn:hover {
+  transform: rotate(90deg) scale(1.2);
+  background-color: transparent;
+}
+
+@media only screen and (max-width: 1300px) {
+  .trailer p {
+    font-size: 1.2rem;
+    margin-left: 15px;
   }
-  
+
+  .banner .playBtn {
+    width: 60px;
+    height: 60px;
+  }
+
+  .banner .playBtn ion-icon {
+    font-size: 2.5rem;
+  }
+
+  .banner .playBtn::before {
+    border: 8px solid #ffffff;
+  }
+
   .video-wrapper {
-    position: relative; 
-    width: 80%;
-    max-width: 1200px;
-    height: auto;
+    width: 90%;
+    max-width: 1000px;
   }
-  
+
   .closeBtn {
-    position: absolute;
-    top: 0;
-    right: 1%;
-    background-color: transparent;
-    color: red;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1050;
-    transition: .7s;
+    top: 5px;
+    right: 2%;
   }
-  
-  .closeBtn:focus {
-    outline: none;
+}
+
+@media only screen and (max-width: 992px) {
+  .trailer {
+    justify-content: flex-start !important;
   }
-  
-  .closeBtn:hover {
-    transform: rotate(90deg) scale(1.2);
-    background-color: transparent;
-  }
+}
