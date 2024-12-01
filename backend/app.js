@@ -34,6 +34,11 @@ app.use(cookieParser());
 app.use(authRoutes);
 app.use(messageRoutes);
 
+app.get("/ping", (req, res) => {
+  console.log("pong");
+  res.status(200).send("pong");
+});
+
 // http to create server instance
 const server = http.createServer(app);
 

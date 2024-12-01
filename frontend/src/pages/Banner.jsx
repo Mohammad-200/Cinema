@@ -5,6 +5,7 @@ import Playbtn from "../components/Playbtn";
 import MovieSwiper from "../components/MovieSwiper";
 import "./banner.css";
 import ChatControl from "../components/ChatControl";
+import PingServer from "../components/PingServer";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -118,6 +119,8 @@ function Banner() {
         <p>Data is loading...</p>
       )}
       <ChatControl />
+
+      <PingServer />
     </div>
   );
 }
