@@ -37,13 +37,13 @@ function Header() {
         {user ? (
           <UserName user={user} logout={logout} />
         ) : (
-          <Button
-            icon={<ion-icon name="log-in" />}
-            name="Sign Up"
-            to="/signup"
-          />
+          <Button icon={<ion-icon name="log-in" />} name="Login" to="/login" />
         )}
-        <button className="nav-btn" onClick={showNavbar}>
+        <button
+          style={{ color: "white" }}
+          className="nav-btn"
+          onClick={showNavbar}
+        >
           <FaBars />
         </button>
       </header>

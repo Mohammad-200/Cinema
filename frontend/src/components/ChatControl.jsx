@@ -96,6 +96,12 @@ function ChatControl() {
 
   if (!user) return null;
 
+  const sortedMessages = [...messages].sort(
+    (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+  );
+
+  console.log(sortedMessages);
+
   return (
     <div className={`chat-control ${isOpen ? "open" : ""}`}>
       <div className="chat-container">
@@ -116,8 +122,8 @@ function ChatControl() {
           <div className="chat-messages">
             <div className="messages-container">
               <ScrollableFeed>
-                {messages &&
-                  messages.map((m) => (
+                {sortedMessages &&
+                  sortedMessages.map((m) => (
                     <div
                       className={`message ${
                         m.sender._id === user.id

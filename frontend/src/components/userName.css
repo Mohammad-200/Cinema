@@ -9,6 +9,8 @@
   color: rgb(255, 255, 255);
   font-weight: bold;
   transition: all 0.3s ease-in-out;
+  text-transform: capitalize;
+  margin: 0;
 }
 
 .user-name:hover {
@@ -33,11 +35,11 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  width: 300px; /* Smaller width */
+  width: 300px;
   max-width: 80%;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1001; /* Ensure content is above overlay */
+  z-index: 1001;
 }
 
 .modal-content h2 {
@@ -52,22 +54,34 @@
 .modal-buttons {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
 }
 
 .modal-button {
   padding: 10px 20px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
+  border-radius: 5px;
   border: none;
-  border-radius: 4px;
-  font-size: 1em;
-  transition: all 0.3s ease-in;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Arial", sans-serif;
 }
 
-.modal-button button:hover {
-  background-color: #b2b2b2;
+.modal-button-yes {
+  background-color: #4caf50;
+  color: white;
+}
+
+.modal-button-yes:hover {
+  background-color: #45a049;
+}
+
+.modal-button-no {
+  background-color: #f44336;
+  color: white;
+}
+
+.modal-button-no:hover {
+  background-color: #e53935;
 }
 
 @media only screen and (max-width: 840px) {

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import "./userName.css";
 
-// Ensure to set the app element for accessibility
 Modal.setAppElement("#root");
 
 function UserName({ user, logout }) {
@@ -37,11 +36,18 @@ function UserName({ user, logout }) {
         className="modal-content"
         overlayClassName="modal-overlay"
       >
-        <h2>Confirm Logout</h2>
-        <p>Are you sure you want to logout?</p>
+        <h2 className="modal-title">Confirm Logout</h2>
+        <p className="modal-message">Are you sure you want to logout?</p>
         <div className="modal-buttons">
-          <button onClick={handleLogout}>Yes</button>
-          <button onClick={closeModal}>No</button>
+          <button
+            className="modal-button modal-button-yes"
+            onClick={handleLogout}
+          >
+            Yes
+          </button>
+          <button className="modal-button modal-button-no" onClick={closeModal}>
+            No
+          </button>
         </div>
       </Modal>
     </div>

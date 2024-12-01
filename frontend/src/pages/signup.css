@@ -77,8 +77,8 @@ input.input-style:focus {
   border: 2px solid #e63946;
 }
 
-button {
-  background-color: #e63946;
+.signup-btn {
+  background-color: #d77850;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -87,11 +87,12 @@ button {
   font-size: 20px;
   margin-top: 10px;
   font-weight: 400;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
 }
 
-button:hover {
-  background-color: #f4a261;
+.signup-btn:hover {
+  background-color: #f08a5d;
+  transform: scale(1.05);
 }
 
 .error {

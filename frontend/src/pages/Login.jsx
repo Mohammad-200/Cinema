@@ -39,6 +39,35 @@ function Login() {
     setPassword("");
   };
 
+  const handleGuestLogin = async () => {
+    setEmail("guest@gmail.com");
+    setPassword("guest12345");
+
+    try {
+      const response = await fetch(`${ENDPOINT}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: "guest@gmail.com",
+          password: "guest12345",
+        }),
+      });
+      const data = await response.json();
+      if (data.errors) {
+        setErrors(data.errors);
+        return;
+      }
+      if (data.user && data.token) {
+        localStorage.setItem("userInfo", data.token);
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="login-container">
       <div className="login-content">
@@ -64,8 +93,15 @@ function Login() {
             required
           ></input>
           <p className="passwordError error">{errors.password}</p>
-          <button type="submit">Login</button>
+          <button className="login-button" type="submit">
+            Login
+          </button>
         </form>
+        <div className="guest-container">
+          <button className="guest-login-btn" onClick={handleGuestLogin}>
+            Continue as a Guest
+          </button>
+        </div>
         <div className="login-footer">
           <p>
             Don't have an account? <Link to="/signup">Sign Up</Link>
