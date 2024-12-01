@@ -21,7 +21,6 @@ function ChatControl() {
   const [socketConnection, setSocketConnection] = useState(false);
 
   const { user } = ChatState();
-  console.log(user);
 
   const sendMessage = async () => {
     const token = localStorage.getItem("userInfo");
@@ -38,14 +37,11 @@ function ChatControl() {
       setNewMessage("");
       const data = await response.json();
 
-      console.log(data);
-
       //Emit the new message to the server
       socket.emit("new message", data);
 
       setMessages([...messages, data]);
     } catch (error) {
-      console.log(error);
       toast.error("something went wrong");
     }
   };
@@ -98,9 +94,7 @@ function ChatControl() {
     }
   }, [user]);
 
-  if (!user) {
-    return null;
-  }
+  if (!user) return null;
 
   return (
     <div className={`chat-control ${isOpen ? "open" : ""}`}>

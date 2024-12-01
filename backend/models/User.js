@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// useing mongo hook to bvrypt the password
+// using mongo hook to bcrypt the password
 
 userSchema.pre("save", async function (next) {
   const salt = await bcrypt.genSalt();

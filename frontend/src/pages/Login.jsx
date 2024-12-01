@@ -30,7 +30,7 @@ function Login() {
         navigate("/");
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
 
     setEmail("");

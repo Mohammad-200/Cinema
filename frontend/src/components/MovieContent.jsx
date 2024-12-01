@@ -1,6 +1,5 @@
 import React from "react";
 import "./movieContent.css";
-import Button from "./Button";
 
 function MovieContent({ movie }) {
   return (

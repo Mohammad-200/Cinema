@@ -43,7 +43,7 @@ const ChatProvider = ({ children }) => {
       const decodedToken = parseJwt(token);
       setUser(decodedToken);
     }
-  }, [location]);
+  }, [location, user?.token]);
 
   return (
     <ChatContext.Provider value={{ user, setUser, logout }}>
