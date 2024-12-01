@@ -100,8 +100,6 @@ function ChatControl() {
     (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
   );
 
-  console.log(sortedMessages);
-
   return (
     <div className={`chat-control ${isOpen ? "open" : ""}`}>
       <div className="chat-container">

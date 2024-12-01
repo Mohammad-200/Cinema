@@ -2,6 +2,12 @@ import React from "react";
 import "./movieContent.css";
 
 function MovieContent({ movie }) {
+  const movieType = movie.genres.some(
+    (m) => m.name === "Animation" || m.name === "Family" || m.name === "Comedy"
+  )
+    ? "Kids"
+    : "adult";
+
   return (
     <div className={`content ${movie.active ? "active" : ""}`}>
       <h2>{movie.title}</h2>
@@ -15,7 +21,7 @@ function MovieContent({ movie }) {
           </i>
         </span>
         <span>{movie.original_language}</span>
-        <span>{movie.adult ? "kids" : "adults"}</span>
+        <span>{movieType}</span>
       </h4>
       <p>{movie.overview}</p>
       <div className="button">

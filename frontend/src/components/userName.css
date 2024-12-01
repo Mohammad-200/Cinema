@@ -25,63 +25,101 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   z-index: 1000;
 }
 
 .modal-content {
-  background: white;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 300px;
-  max-width: 80%;
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+  border-radius: 15px;
+  padding: 30px;
+  width: 350px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1001;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-.modal-content h2 {
-  margin-top: 0;
-  font-size: 1.5em;
+.modal-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  font-family: "Arial", sans-serif;
 }
 
-.modal-content p {
-  margin: 10px 0;
+.modal-message {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 30px;
 }
 
 .modal-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: 15px;
 }
 
 .modal-button {
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
+  position: relative;
+  padding: 12px 25px;
   font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
   font-family: "Arial", sans-serif;
+  color: white;
 }
 
 .modal-button-yes {
-  background-color: #4caf50;
-  color: white;
+  background: linear-gradient(135deg, #6dd400, #28a745);
+  box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4);
 }
 
 .modal-button-yes:hover {
-  background-color: #45a049;
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(46, 204, 113, 0.6);
 }
 
 .modal-button-no {
-  background-color: #f44336;
-  color: white;
+  background: linear-gradient(135deg, #ff4e50, #c0392b);
+  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4);
 }
 
 .modal-button-no:hover {
-  background-color: #e53935;
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(231, 76, 60, 0.6);
+}
+
+.modal-button span {
+  position: relative;
+  z-index: 2;
+}
+
+.modal-button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-45deg);
+  transition: left 0.5s ease;
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media only screen and (max-width: 840px) {

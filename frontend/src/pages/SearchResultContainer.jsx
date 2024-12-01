@@ -19,6 +19,7 @@ function SearchResultContainer() {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [hasMore, setHasMore] = useState(true);
   const observer = useRef();
 
   useEffect(() => {
@@ -43,6 +44,11 @@ function SearchResultContainer() {
               ? moviesWithDetails
               : [...prevMovies, ...moviesWithDetails]
           );
+
+          // Check if we received fewer movies than expected
+          if (response.data.results.length < 20) {
+            setHasMore(false); // No more movies to fetch
+          }
         } catch (err) {
           setError("An error occurred while fetching data");
         } finally {
@@ -53,12 +59,13 @@ function SearchResultContainer() {
       fetchMoviesWithTrailers();
     } else {
       setMovies([]);
+      setHasMore(false); // No search results
     }
   }, [searchResult, page]);
 
   const lastMovieElementRef = useCallback(
     (node) => {
-      if (loading) return;
+      if (loading || !hasMore) return; // Stop observing if loading or no more movies
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
@@ -67,7 +74,7 @@ function SearchResultContainer() {
       });
       if (node) observer.current.observe(node);
     },
-    [loading]
+    [loading, hasMore]
   );
 
   return (
@@ -85,6 +92,16 @@ function SearchResultContainer() {
         })}
         {error && <div className="error-message">{error}</div>}
       </div>
+      {!hasMore && !loading && movies.length === 0 && (
+        <div className="no-results-message" style={{ color: "#ffffff" }}>
+          No movies found that match your search.
+        </div>
+      )}
+      {!hasMore && movies.length > 0 && (
+        <div className="no-more-results-message" style={{ color: "#ffffff" }}>
+          You've reached the end of the results.
+        </div>
+      )}
       <div ref={lastMovieElementRef} style={{ height: "1px" }} />
       {loading && (
         <div className="spinner-overlay">

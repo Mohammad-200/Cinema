@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./signup.css";
 import { Link, useNavigate } from "react-router-dom";
+import BackToMainScreen from "../components/BackToMainScreen";
 
 const ENDPOINT = "https://cinema-backend-32dr.onrender.com";
 
@@ -43,6 +44,7 @@ function Signup() {
 
   return (
     <div className="signup-container">
+      <BackToMainScreen />
       <div className="signup-content">
         <h1>
           Welcome to the <span id="cinema">Cinema</span>
