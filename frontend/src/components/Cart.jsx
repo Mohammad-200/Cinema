@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import "./cart.css";
 
@@ -8,6 +8,21 @@ const Cart = forwardRef(({ movie }, ref) => {
   const formattedRating = movie.vote_average
     ? movie.vote_average.toFixed(1)
     : "N/A";
+
+  useEffect(() => {
+    if (trailerOn) {
+      // Disable scrolling
+      document.body.style.overflow = "hidden";
+    } else {
+      // Enable scrolling
+      document.body.style.overflow = "auto";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [trailerOn]);
 
   // Check if poster_path exists before rendering
   if (!movie.poster_path) return null;

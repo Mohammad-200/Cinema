@@ -20,7 +20,7 @@ function Header() {
   return (
     <>
       <header>
-        <a href="#" className="logo">
+        <a href="/Cinema" className="logo">
           Cinema
         </a>
         <ul className="nav" ref={navRaf}>
