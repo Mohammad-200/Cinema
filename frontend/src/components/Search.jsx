@@ -5,16 +5,19 @@ import { SearchContext } from "../Context/SearchProvider";
 
 function Search() {
   const { searchResult, setSearchResult } = useContext(SearchContext);
-  const [hasNavigated, setHasNavigated] = useState(false);
+  const [debouncedSearch, setDebouncedSearch] = useState(searchResult || "");
+  const [debouncedSearchResult, setDebouncedSearchResult] =
+    useState(searchResult);
   const navigate = useNavigate();
 
-  // Loading the search input value from local storage
+  // Debounce logic for updating searchResult
   useEffect(() => {
-    const savedSearchResult = localStorage.getItem("searchResult");
-    if (savedSearchResult) {
-      setSearchResult(savedSearchResult);
-    }
-  }, [setSearchResult]);
+    const delayDebounce = setTimeout(() => {
+      setSearchResult(debouncedSearch);
+    }, 300);
+
+    return () => clearTimeout(delayDebounce);
+  }, [debouncedSearch, setSearchResult]);
 
   useEffect(() => {
     if (searchResult !== undefined) {
@@ -22,23 +25,22 @@ function Search() {
     }
   }, [searchResult]);
 
+  // Navigation logic based on searchResult
   useEffect(() => {
-    if (searchResult && searchResult.length > 0 && !hasNavigated) {
+    if (searchResult && searchResult.trim().length > 0) {
       navigate("/search");
-      setHasNavigated(true);
-    } else if ((!searchResult || searchResult.length === 0) && hasNavigated) {
+    } else {
       navigate("/");
-      setHasNavigated(false);
     }
-  }, [searchResult, navigate, hasNavigated]);
+  }, [searchResult, navigate]);
 
   return (
     <div className="search">
       <input
         type="text"
         placeholder="Search"
-        value={searchResult}
-        onChange={(e) => setSearchResult(e.target.value)}
+        value={debouncedSearch}
+        onChange={(e) => setDebouncedSearch(e.target.value)}
       />
       <ion-icon name="search-outline" />
     </div>

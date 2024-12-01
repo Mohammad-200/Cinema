@@ -69,12 +69,13 @@ function SearchResultContainer() {
     <div className="search-result-container">
       <div className="row mt-5">
         {movies.map((movie, index) => {
+          const uniqueKey = `page2-${movie.id}-${index}`;
           if (movies.length === index + 1) {
             return (
-              <Cart ref={lastMovieElementRef} key={movie.id} movie={movie} />
+              <Cart ref={lastMovieElementRef} key={uniqueKey} movie={movie} />
             );
           } else {
-            return <Cart key={movie.id} movie={movie} />;
+            return <Cart key={uniqueKey} movie={movie} />;
           }
         })}
         {/* {loading && ( --> spinner code

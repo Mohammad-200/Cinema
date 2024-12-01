@@ -72,9 +72,10 @@ function Schedule() {
           {loading ? (
             <p>Loading...</p>
           ) : (
-            getFilteredMovies().map((movie) => (
-              <Cart key={movie.id} movie={movie} />
-            ))
+            getFilteredMovies().map((movie, index) => {
+              const uniqueKey = `page1-${movie.id}-${index}`;
+              return <Cart key={uniqueKey} movie={movie} />;
+            })
           )}
         </div>
       </div>
