@@ -10,7 +10,7 @@ import { BarLoader } from "react-spinners";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { io } from "socket.io-client";
 
-const ENDPOINT = "http://localhost:3001";
+const ENDPOINT = "https://cinema-backend-32dr.onrender.com"; //  http://localhost:3001 -> local development
 let socket;
 
 function ChatControl() {
