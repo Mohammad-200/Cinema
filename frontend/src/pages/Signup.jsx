@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./signup.css";
 import { Link, useNavigate } from "react-router-dom";
 
+const ENDPOINT = "https://cinema-backend-32dr.onrender.com";
+
 function Signup() {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,7 +15,7 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const response = await fetch("/signup", {
+      const response = await fetch(`${ENDPOINT}/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -26,7 +26,7 @@ function ChatControl() {
     const token = localStorage.getItem("userInfo");
 
     try {
-      const response = await fetch("/chat", {
+      const response = await fetch(`${ENDPOINT}/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +56,7 @@ function ChatControl() {
       setIsLoading(true);
       const fetchMessages = async () => {
         try {
-          const response = await fetch("/chat", {
+          const response = await fetch(`${ENDPOINT}/chat`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
