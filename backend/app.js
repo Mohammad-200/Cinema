@@ -11,10 +11,26 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
-app.use(express.json());
-app.use(cors());
-app.use(cookieParser());
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://mohammad-200.github.io",
+];
 
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+
+app.use(express.json());
+app.use(cookieParser());
 app.use(authRoutes);
 app.use(messageRoutes);
 
@@ -25,7 +41,7 @@ const server = http.createServer(app);
 const io = socketIO(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "http://localhost:3000",
+    origin: allowedOrigins,
   },
 });
 
