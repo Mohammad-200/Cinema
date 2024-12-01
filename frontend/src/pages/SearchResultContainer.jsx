@@ -6,12 +6,12 @@ import React, {
   useState,
 } from "react";
 import "./SearchResultContainer.css";
-import { SearchContext } from "../Context/SearchProvider";
 import axios from "axios";
+import { SearchContext } from "../Context/SearchProvider";
+
 import { BarLoader } from "react-spinners";
 import Cart from "../components/Cart";
-
-const apiKey = process.env.REACT_APP_API_KEY;
+import { fetchMovieDetails } from "../utils/api";
 
 function SearchResultContainer() {
   const { searchResult } = useContext(SearchContext);
@@ -26,26 +26,31 @@ function SearchResultContainer() {
       setLoading(true);
       setError(null);
 
-      axios
-        .get(
-          `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchResult}&language=en-US&page=${page}`
-        )
-        .then((response) => {
-          if (page === 1) {
-            setMovies(response.data.results);
-          } else {
-            setMovies((previousMovies) => [
-              ...previousMovies,
-              ...response.data.results,
-            ]);
-          }
-        })
-        .catch((err) => {
+      const fetchMoviesWithTrailers = async () => {
+        try {
+          const response = await axios.get(
+            `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${searchResult}&language=en-US&page=${page}`
+          );
+
+          const movieDetailsPromises = response.data.results.map((movie) =>
+            fetchMovieDetails(movie.id)
+          );
+
+          const moviesWithDetails = await Promise.all(movieDetailsPromises);
+
+          setMovies((prevMovies) =>
+            page === 1
+              ? moviesWithDetails
+              : [...prevMovies, ...moviesWithDetails]
+          );
+        } catch (err) {
           setError("An error occurred while fetching data");
-        })
-        .finally(() => {
+        } finally {
           setLoading(false);
-        });
+        }
+      };
+
+      fetchMoviesWithTrailers();
     } else {
       setMovies([]);
     }
@@ -78,14 +83,14 @@ function SearchResultContainer() {
             return <Cart key={uniqueKey} movie={movie} />;
           }
         })}
-        {/* {loading && ( --> spinner code
-          <div className="spinner-overlay">
-            <BarLoader color={"#36D7B7"} />
-          </div>
-        )} */}
         {error && <div className="error-message">{error}</div>}
       </div>
       <div ref={lastMovieElementRef} style={{ height: "1px" }} />
+      {loading && (
+        <div className="spinner-overlay">
+          <BarLoader color={"#36D7B7"} />
+        </div>
+      )}
     </div>
   );
 }

@@ -10,9 +10,7 @@ const Cart = forwardRef(({ movie }, ref) => {
     : "N/A";
 
   // Check if poster_path exists before rendering
-  if (!movie.poster_path) {
-    return null;
-  }
+  if (!movie.poster_path) return null;
 
   const playTrailer = (e) => {
     e.preventDefault();
