@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 3001;
 const allowedOrigins = [
   "http://localhost:3000",
   "https://mohammad-200.github.io",
+  "https://cinema-frontend-qvuk.onrender.com",
 ];
 
 app.use(
