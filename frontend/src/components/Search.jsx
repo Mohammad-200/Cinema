@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
-import "./search.css";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../Context/SearchProvider";
+import "./search.css";
 
 function Search() {
   const { searchResult, setSearchResult } = useContext(SearchContext);

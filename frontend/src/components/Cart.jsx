@@ -1,4 +1,4 @@
-import React, { useState, forwardRef, useEffect } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import "./cart.css";
 

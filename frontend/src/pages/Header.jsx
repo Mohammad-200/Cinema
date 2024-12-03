@@ -1,13 +1,13 @@
 import { useRef } from "react";
-import NavListItem from "../components/NavListItem";
-import navListData from "../data/navListData";
-import Search from "../components/Search";
+import { FaBars, FaTimes } from "react-icons/fa";
 import Button from "../components/Button";
 import ChatPanel from "../components/ChatPanel";
-import { ChatState } from "../Context/ChatProvider";
-import "./header.css";
+import NavListItem from "../components/NavListItem";
+import Search from "../components/Search";
 import UserName from "../components/UserName";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { ChatState } from "../Context/ChatProvider";
+import navListData from "../data/navListData";
+import "./header.css";
 
 function Header() {
   const navRaf = useRef(null);
