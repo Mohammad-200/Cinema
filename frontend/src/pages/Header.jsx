@@ -7,6 +7,7 @@ import Search from "../components/Search";
 import UserName from "../components/UserName";
 import { ChatState } from "../Context/ChatProvider";
 import navListData from "../data/navListData";
+import { LiaSignInAltSolid } from "react-icons/lia";
 import "./header.css";
 
 function Header() {
@@ -37,8 +38,13 @@ function Header() {
         {user ? (
           <UserName user={user} logout={logout} />
         ) : (
-          <Button icon={<ion-icon name="log-in" />} name="Login" to="/login" />
+          <Button
+            icon={<LiaSignInAltSolid className="login-icon" />}
+            name="Login"
+            to="/login"
+          />
         )}
+
         <button
           style={{ color: "white" }}
           className="nav-btn"

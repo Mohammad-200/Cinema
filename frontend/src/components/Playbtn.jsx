@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IoMdClose } from "react-icons/io";
+import { IoMdClose, IoMdPlay } from "react-icons/io";
 import "./playBtn.css";
 
 function Playbtn({ movie }) {
@@ -22,7 +22,7 @@ function Playbtn({ movie }) {
         }`}
       >
         <a href="#" onClick={playTrailer} className="playBtn">
-          <ion-icon name="play"></ion-icon>
+          <IoMdPlay className="react-play" />
         </a>
         <p>Watch the trailer</p>
       </div>

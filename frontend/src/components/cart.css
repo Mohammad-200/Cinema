@@ -36,7 +36,7 @@
   padding: 10px 0;
 }
 
-.movie-cart ion-icon[name="star"] {
+.react-star {
   font-size: 1.5rem;
   color: yellow;
   margin-bottom: 2px;
@@ -84,15 +84,44 @@
   z-index: 1000;
 }
 
-.movie-cart .content ion-icon[name="add"],
-.movie-cart .content ion-icon[name="play"] {
+/* For the play button */
+.play {
   font-size: 2rem;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   cursor: pointer;
+  color: white; /* Default color */
 }
 
-.movie-cart .content ion-icon:hover {
+.play:hover {
   color: var(--primary);
+  transform: scale(1.1);
+}
+
+.add {
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.add:hover {
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+.play,
+.add {
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: white;
+}
+
+.play:hover,
+.add:hover {
+  color: var(--primary);
+  transform: scale(1.1);
 }
 
 .movie-cart:hover .content,

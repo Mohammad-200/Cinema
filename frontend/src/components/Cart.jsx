@@ -1,6 +1,8 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import "./cart.css";
+import { MdOutlineStar } from "react-icons/md";
+import { IoMdAdd, IoMdPlay } from "react-icons/io";
 
 const Cart = forwardRef(({ movie }, ref) => {
   const [trailerOn, setTrailerOn] = useState(false);
@@ -45,14 +47,14 @@ const Cart = forwardRef(({ movie }, ref) => {
           className="img-fluid"
         />
         <p>
-          <ion-icon name="star"></ion-icon> {formattedRating}
+          <MdOutlineStar className="react-star" /> {formattedRating}
         </p>
         <div className="content">
           <h4>{movie.title}</h4>
           <div className="card-icons">
-            <ion-icon name="add"></ion-icon>
+            <IoMdAdd className="add" />
             <a href="#" onClick={playTrailer}>
-              <ion-icon name="play"></ion-icon>
+              <IoMdPlay className="play" />
             </a>
           </div>
         </div>

@@ -36,7 +36,7 @@
   cursor: pointer !important;
 }
 
-.banner .playBtn ion-icon {
+.react-play {
   font-size: 3rem;
   color: var(--primary);
   cursor: pointer;
