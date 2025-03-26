@@ -43,7 +43,9 @@ const handleErrors = (error) => {
 
 // create JWT cookie
 
-const maxAge = 3 * 242 * 60 * 60;
+// const maxAge = 3 * 242 * 60 * 60;
+const maxAge = 24 * 60 * 60; // 1 day in seconds
+
 const createToken = (user) => {
   const payload = {
     id: user._id,

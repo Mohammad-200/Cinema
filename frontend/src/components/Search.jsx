@@ -42,7 +42,6 @@ function Search() {
         value={debouncedSearch}
         onChange={(e) => setDebouncedSearch(e.target.value)}
       />
-      <ion-icon name="search-outline" />
     </div>
   );
 }

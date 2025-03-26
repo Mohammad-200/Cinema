@@ -64,6 +64,11 @@ function ChatControl() {
             },
           });
           const data = await response.json();
+          if (!Array.isArray(data)) {
+            throw new Error(
+              "Unexpected response format: messages should be an array."
+            );
+          }
           setMessages(data);
           setIsLoading(false);
         } catch (error) {
